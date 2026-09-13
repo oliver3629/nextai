@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# NextAI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NextAI is a full-stack PDF question-answering application. Users can upload a PDF, ask questions about its contents by typing or speaking, and receive text or spoken answers.
 
-## Available Scripts
+## Project structure
 
-In the project directory, you can run:
+```text
+nextai/
+|-- public/                    # Static frontend files
+|-- src/
+|   |-- components/
+|   |   |-- ChatComponent.js   # Text and voice questions
+|   |   |-- PdfUploader.js     # PDF upload interface
+|   |   `-- RenderQA.js        # Question and answer display
+|   `-- App.js                 # Main React application
+|-- server/
+|   |-- chat.js                # PDF retrieval and question answering
+|   |-- server.js              # Express server and upload routes
+|   |-- package.json
+|   `-- package-lock.json
+|-- package.json
+`-- package-lock.json
+```
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js 18 or later
+- npm
+- [OpenAI API key](https://platform.openai.com/api-keys)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup
 
-### `npm test`
+Install the frontend dependencies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+```
 
-### `npm run build`
+Install the backend dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd server
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Create `server/.env`:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```env
+REACT_APP_OPENAI_API_KEY=your_openai_api_key
+```
 
-### `npm run eject`
+Create a `server/uploads` folder.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Run the project
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run the frontend and backend together from the project root:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm run dev
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Frontend: [http://localhost:3000](http://localhost:3000)
+- Backend: [http://localhost:5001](http://localhost:5001)
 
-## Learn More
+Run only the frontend:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Run only the backend:
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+cd server
+npm start
+```
